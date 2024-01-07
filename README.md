@@ -1,5 +1,5 @@
 # dwm - dynamic window manager
-[中文版](./README_CN.md)
+[中文版](./README_CN)
 
 dwm is an extremely fast, small, and dynamic window manager for X.
 
