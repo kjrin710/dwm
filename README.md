@@ -3,7 +3,7 @@
 
 dwm is an extremely fast, small, and dynamic window manager for X.
 
-This is my custom dwm, fork from sr/dwm.
+This is my custom dwm, forked from sr/dwm.
 
 Requirements
 ------------
