@@ -13,16 +13,15 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "fontawesome:size=16" };
 static const char dmenufont[]       = "fontawesome:size=16";
 static const char col_cyan[]        = "#86e1fc";
-static const char col_bg_dark[]     = "#2e3440";   /* 深色背景 */
-static const char col_bg[]          = "#3b4252";   /* 背景 */
-static const char col_gray1[]       = "#434c5e";   /* 灰色1 */
-static const char col_gray2[]       = "#4c566a";   /* 灰色2 */
-static const char col_gray3[]       = "#d8dee9";   /* 浅灰1 */
-static const char col_gray4[]       = "#eceff4";   /* 浅灰2 */
+static const char col_bg_dark[]     = "#2e3440";
+static const char col_bg[]          = "#3b4252";
+static const char col_gray1[]       = "#434c5e";
+static const char col_gray2[]       = "#4c566a";
+static const char col_gray3[]       = "#d8dee9";
+static const char col_gray4[]       = "#eceff4";
 static const char col_accent[]      = "#5e81ac";
-/* Nord配色 */
-static const char col_nord_blue[]   = "#5e81ac";   /* 深蓝 */
-static const char col_nord_green[]  = "#a3be8c";   /* 绿色 */
+static const char col_nord_blue[]   = "#5e81ac";
+static const char col_nord_green[]  = "#a3be8c";
 
 static const char *colors[][3]      = {
     /*               fg         bg         border   */
@@ -70,12 +69,15 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-/* 将原来的这一行替换为新配色 */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_accent, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
+  { MODKEY|ShiftMask,             XK_Up,     spawn,          SHCMD("amixer set Master 5%+") },
+  { MODKEY|ShiftMask,             XK_Down,   spawn,          SHCMD("amixer set Master 5%-") },
+  { MODKEY,                       XK_s,      spawn,          SHCMD("flameshot full -p ~/Pictures/Screenshots") },
+  { MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("flameshot gui") },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },

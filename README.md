@@ -1,48 +1,46 @@
-dwm - dynamic window manager
-============================
-dwm is an extremely fast, small, and dynamic window manager for X.
+[中文版](./docs/README_zh.md)  
+# dwm - Dynamic Window Manager
+Dwm is an X system window manager with extremely fast performance, small size, and flexible functions.  
+The configuration of dwm is achieved by creating a custom config.h file and recompiling the source code.  
+This is the personal branch of the [dwm](https://dwm.suckless.org/) project, which originated from [suckless.org](https://suckless.org/)   
 
+## Requirements/Conditions
+To build dwm, you need the Xlib header files.  
 
-Requirements
-------------
-In order to build dwm you need the Xlib header files.
+## Installation
+Modify the config.mk file to suit your local environment settings (by default, dwm is installed in the /usr/local directory).  
+Then, enter the following command to build and install dwm (please execute it as root if necessary):  
+`make clean install`  
 
+## Run dwm
+Add the following content to your .xinitrc file, and you can start dwm by using the startx command:  
+`exec dwm`  
 
-Installation
-------------
-Edit config.mk to match your local setup (dwm is installed into
-the /usr/local namespace by default).
+If you want to connect the dwm to the specified display, make sure that the DISPLAY environment variable has been set correctly, for example:  
+`DISPLAY=foo.bar:1 exec dwm`  
+(This will cause dwm to start on display :1 of the host foo.bar)   
 
-Afterwards enter the following command to build and install dwm (if
-necessary as root):
+## Custom Configuration
+The following personalized adjustments have been made on the basis of the original dwm:  
 
-    make clean install
+### Patch 
+- actualfullscreen
+- hide vacant tags
+- pertag
+- status2d-systray
+### Appearance
+- **Font**: Use `fontawesome`, size 16
+- **Theme**: Dark blue color scheme
 
-
-Running dwm
------------
-Add the following line to your .xinitrc to start dwm using startx:
-
-    exec dwm
-
-In order to connect dwm to a specific display, make sure that
-the DISPLAY environment variable is set correctly, e.g.:
-
-    DISPLAY=foo.bar:1 exec dwm
-
-(This will start dwm on display :1 of the host foo.bar.)
-
-In order to display status info in the bar, you can do something
-like this in your .xinitrc:
-
-    while xsetroot -name "`date` `uptime | sed 's/.*,//'`"
-    do
-    	sleep 1
-    done &
-    exec dwm
-
-
-Configuration
--------------
-The configuration of dwm is done by creating a custom config.h
-and (re)compiling the source code.
+### Shortcut Changes
+- **Modifier Key**: The default modifier key ALT (Mod1) is replaced with Super (MOD4) key
+- **New Key Positions**:
+- Increase/Decrease amixer volume: `Super + Shift + ↑ / ↓`
+- Full-screen screenshot with Flameshot: `Super + s`
+- Flameshot GUI: `Super + Shift + s`
+- **Adjust Key Positions**: 
+- Start terminal: `Super + Shift + Return` -> `Super + Return`
+- Zoom: `Super + Return` -> `Super + Shift + Return`
+- Close current window: `Super + Shift + c` -> `Super + q`
+- Exit dwm: `Super + Shift + q` -> `Super + Shift + c`
+Other default shortcuts remain unchanged. Refer to the config.h configuration file for details.
