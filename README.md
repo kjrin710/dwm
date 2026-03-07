@@ -47,7 +47,7 @@ The following personalized adjustments have been made on the basis of the origin
 **New Key Positions**:
 - Increase/Decrease amixer volume: `Super + Shift + ↑ / ↓`
 - Full-screen screenshot with Flameshot: `Super + s`
-- Flameshot GUI: `Super + Shift + s`
+- Flameshot GUI: `Super + Shift + s`  
 **Adjust Key Positions**: 
 - Start terminal: `Super + Shift + Return` -> `Super + Return`
 - Zoom: `Super + Return` -> `Super + Shift + Return`
