@@ -10,8 +10,8 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;        /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "fontawesome:size=16" };
-static const char dmenufont[]       = "fontawesome:size=16";
+static const char *fonts[]          = { "monospace:size=16" };
+static const char dmenufont[]       = "monospace:size=16";
 static const char col_cyan[]        = "#86e1fc";
 static const char col_bg_dark[]     = "#2e3440";
 static const char col_bg[]          = "#3b4252";
@@ -46,6 +46,7 @@ static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] 
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
+static const int refreshrate = 120;  /* refresh rate (per second) for client move/resize */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -55,7 +56,7 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-#define MODKEY Mod4Mask
+#define MODKEY Mod1Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -67,17 +68,17 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_accent, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
-  { MODKEY|ShiftMask,             XK_Up,     spawn,          SHCMD("amixer set Master 5%+") },
-  { MODKEY|ShiftMask,             XK_Down,   spawn,          SHCMD("amixer set Master 5%-") },
-  { MODKEY,                       XK_s,      spawn,          SHCMD("flameshot full -p ~/Pictures/Screenshots") },
-  { MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("flameshot gui") },
+	{ MODKEY|ShiftMask,             XK_Up,     spawn,          SHCMD("amixer set Master 5%+") },
+	{ MODKEY|ShiftMask,             XK_Down,   spawn,          SHCMD("amixer set Master 5%-") },
+	{ MODKEY,                       XK_s,      spawn,          SHCMD("flameshot full -p ~/Pictures/Screenshots") },
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("flameshot gui") },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,	                XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },

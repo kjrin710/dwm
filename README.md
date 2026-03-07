@@ -41,16 +41,14 @@ The following personalized adjustments have been made on the basis of the origin
 - fullscreen
 
 ### Appearance
-- **Font**: Use `fontawesome`, size 16
-- **Theme**: Dark blue color scheme
+**Theme**: Dark blue color scheme
 
 ### Shortcut Changes
-- **Modifier Key**: The default modifier key ALT (Mod1) is replaced with Super (MOD4) key
-- **New Key Positions**:
+**New Key Positions**:
 - Increase/Decrease amixer volume: `Super + Shift + ↑ / ↓`
 - Full-screen screenshot with Flameshot: `Super + s`
 - Flameshot GUI: `Super + Shift + s`
-- **Adjust Key Positions**: 
+**Adjust Key Positions**: 
 - Start terminal: `Super + Shift + Return` -> `Super + Return`
 - Zoom: `Super + Return` -> `Super + Shift + Return`
 - Close current window: `Super + Shift + c` -> `Super + q`
